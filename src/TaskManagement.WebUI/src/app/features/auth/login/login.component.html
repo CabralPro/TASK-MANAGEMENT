@@ -1,0 +1,78 @@
+<section class="auth-page">
+  <mat-card class="auth-card">
+    <div class="auth-header">
+      <p class="eyebrow">Task Management</p>
+      <h1>Sign in</h1>
+      <p>Manage your personal tasks with a clean, focused workspace.</p>
+    </div>
+
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="userName" autocomplete="username" />
+        <mat-error>
+          @if (form.controls.userName.hasError('required')) {
+            Username is required
+          } @else if (form.controls.userName.hasError('maxlength')) {
+            Username cannot exceed 100 characters
+          }
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hidePassword() ? 'password' : 'text'"
+          formControlName="password"
+          autocomplete="current-password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          [attr.aria-label]="hidePassword() ? 'Show password' : 'Hide password'"
+          [attr.aria-pressed]="!hidePassword()"
+          (click)="togglePasswordVisibility()"
+        >
+          <mat-icon>{{ hidePassword() ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+        <mat-error>
+          @if (form.controls.password.hasError('required')) {
+            Password is required
+          } @else if (form.controls.password.hasError('maxlength')) {
+            Password cannot exceed 100 characters
+          }
+        </mat-error>
+      </mat-form-field>
+
+      @if (errorMessage()) {
+        <p class="error-message">{{ errorMessage() }}</p>
+      }
+
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        class="action-button"
+        [disabled]="isSubmitting()"
+      >
+        <span class="button-content">
+          @if (isSubmitting()) {
+            <mat-progress-spinner diameter="18" mode="indeterminate" />
+            <span>Signing in...</span>
+          } @else {
+            Sign in
+          }
+        </span>
+      </button>
+    </form>
+
+    <p class="auth-link">
+      Need an account?
+      <a routerLink="/register">Create one</a>
+    </p>
+
+    <p class="demo-hint">Demo: <code>demo</code> / <code>@Demo123</code></p>
+  </mat-card>
+</section>

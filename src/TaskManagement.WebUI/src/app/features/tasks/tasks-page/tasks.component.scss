@@ -1,0 +1,220 @@
+.tasks-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+
+  h1 {
+    margin: 0.2rem 0 0.35rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.subtitle {
+  margin: 0;
+  color: #64748b;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.filter-field {
+  width: 10rem;
+}
+
+.action-button {
+  .button-content {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  mat-progress-spinner {
+    display: inline-block;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    --mat-progress-spinner-active-indicator-color: #0f766e;
+  }
+
+  &.is-loading {
+    border-color: rgba(15, 118, 110, 0.35);
+    color: #0f766e;
+    background: rgba(15, 118, 110, 0.06);
+  }
+}
+
+.loading-state {
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  min-height: 12rem;
+  padding: 2rem 1rem;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.55);
+  color: #64748b;
+
+  mat-progress-spinner {
+    --mat-progress-spinner-active-indicator-color: #0f766e;
+  }
+}
+
+.table-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.table-panel.is-busy .table-wrap {
+  pointer-events: none;
+  user-select: none;
+}
+
+.table-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(248, 250, 252, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.busy-card {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  color: #0f766e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  mat-progress-spinner {
+    display: block;
+    flex: 0 0 28px;
+    --mat-progress-spinner-active-indicator-color: #0f766e;
+  }
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid #dbe3ea;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.row-spinner {
+  margin-right: 0.5rem;
+  --mat-progress-spinner-active-indicator-color: #0f766e;
+}
+
+.error-message {
+  margin: 0;
+  color: #b91c1c;
+}
+
+.tasks-table {
+  width: 100%;
+}
+
+.title-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 0;
+
+  span {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+}
+
+.status-chip {
+  display: inline-flex;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-inprogress {
+  background: #cffafe;
+  color: #155e75;
+}
+
+.status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.actions-cell {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.empty-state {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border: 1px dashed #cbd5e1;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.55);
+
+  h2 {
+    margin: 0 0 0.35rem;
+    font-family: 'Fraunces', Georgia, serif;
+  }
+
+  p {
+    margin: 0 0 1rem;
+    color: #64748b;
+  }
+}
+
+@media (max-width: 720px) {
+  .header-actions {
+    width: 100%;
+  }
+
+  .filter-field {
+    flex: 1;
+  }
+}

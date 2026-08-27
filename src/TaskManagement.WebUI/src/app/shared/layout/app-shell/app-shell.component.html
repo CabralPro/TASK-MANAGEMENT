@@ -1,0 +1,29 @@
+<div class="shell">
+  <mat-toolbar class="topbar">
+    <a class="brand" routerLink="/tasks">
+      <span class="brand-mark">TM</span>
+      <span class="brand-text">
+        <strong>Task Management</strong>
+        <small>Personal workspace</small>
+      </span>
+    </a>
+
+    <span class="spacer"></span>
+
+    @if (isAuthenticated()) {
+      <span class="user-chip">{{ userName() }}</span>
+      <a mat-button routerLink="/tasks">Tasks</a>
+      <button mat-stroked-button type="button" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        Sign out
+      </button>
+    } @else {
+      <a mat-button routerLink="/login">Sign in</a>
+      <a mat-flat-button color="primary" routerLink="/register">Register</a>
+    }
+  </mat-toolbar>
+
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>

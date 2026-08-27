@@ -1,0 +1,12 @@
+using System;
+using TaskManagement.Domain.Enums;
+
+namespace TaskManagement.Application.DTOs.Requests;
+
+public class CreateTaskRequest
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public TaskStatus Status { get; set; }
+    public DateTime DueDate { get; set; }
+}

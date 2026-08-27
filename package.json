@@ -1,0 +1,32 @@
+{
+  "name": "task-management",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Task Management monorepo - ASP.NET Core API + Angular SPA",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail --timestamp-format \"HH:mm:ss\" --prefix \"[{time}] {name} |\" -n API,Scalar,Angular -c blue,cyan,magenta \"npm:run:api\" \"npm:open:scalar:when-ready\" \"npm:start:web:when-api-ready\"",
+    "start:api": "concurrently --kill-others-on-fail --timestamp-format \"HH:mm:ss\" --prefix \"[{time}] {name} |\" -n API,Scalar -c blue,cyan \"npm:run:api\" \"npm:open:scalar:when-ready\"",
+    "run:api": "dotnet run --project src/TaskManagement.WebAPI/TaskManagement.WebAPI.csproj --launch-profile TaskManagement.WebAPI",
+    "open:scalar": "node scripts/log.js \"Opening http://localhost:5000/scalar/\" && open-cli http://localhost:5000/scalar/",
+    "open:scalar:when-ready": "node scripts/log.js \"Waiting for API documentation...\" && wait-on -t 120000 http-get://localhost:5000/scalar/ && npm run open:scalar",
+    "start:web": "npm --prefix src/TaskManagement.WebUI start",
+    "start:web:when-api-ready": "node scripts/log.js \"Waiting for API on :5000...\" && wait-on -t 120000 tcp:5000 && node scripts/log.js \"Starting Angular...\" && npm run start:web",
+    "install:all": "npm install && npm --prefix src/TaskManagement.WebUI install",
+    "test:api": "dotnet test TaskManagement.sln --verbosity minimal",
+    "test:web": "npm --prefix src/TaskManagement.WebUI test -- --watch=false",
+    "test": "concurrently --kill-others-on-fail -n API,Web -c blue,magenta \"npm:test:api\" \"npm:test:web\"",
+    "coverage:api": "node scripts/coverage-api.js",
+    "coverage:web": "npm --prefix src/TaskManagement.WebUI run test:coverage",
+    "coverage": "concurrently --kill-others-on-fail -n API,Web -c blue,magenta \"npm:coverage:api\" \"npm:coverage:web\"",
+    "open:coverage:api": "node scripts/open-file.js CoverageReport/index.html",
+    "open:coverage:web": "node scripts/open-file.js src/TaskManagement.WebUI/coverage/task-management/index.html",
+    "coverage:api:open": "npm run coverage:api && npm run open:coverage:api",
+    "coverage:web:open": "npm run coverage:web && npm run open:coverage:web",
+    "coverage:open": "npm run coverage && npm run open:coverage:api && npm run open:coverage:web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "open-cli": "^8.0.0",
+    "wait-on": "^8.0.5"
+  }
+}

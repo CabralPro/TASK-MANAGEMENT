@@ -1,0 +1,99 @@
+.auth-page {
+  min-height: calc(100vh - 4rem);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background:
+    linear-gradient(160deg, rgba(15, 118, 110, 0.08), transparent 45%),
+    var(--mat-sys-surface-container-lowest, #fff);
+}
+
+.auth-header {
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0.25rem 0 0.5rem;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0;
+    color: var(--mat-sys-on-surface-variant, #4b5563);
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  button {
+    margin-top: 0.5rem;
+  }
+}
+
+.action-button {
+  .button-content {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  mat-progress-spinner {
+    display: inline-block;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    --mat-progress-spinner-active-indicator-color: currentColor;
+  }
+}
+
+.error-message {
+  margin: 0.25rem 0 0.5rem;
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.auth-link {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant, #4b5563);
+
+  a {
+    color: #0f766e;
+    font-weight: 600;
+  }
+}
+
+.demo-hint {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+
+  code {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.8rem;
+  }
+}

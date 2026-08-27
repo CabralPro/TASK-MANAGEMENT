@@ -1,0 +1,13 @@
+{
+  "dotnet.preferCSharpExtension": true,
+  "omnisharp.enableRoslynAnalyzers": false,
+  "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles",
+  "dotnet.defaultSolution": "TaskManagement.sln",
+  "csharp-dev-tools.solutionViewer.selectedWorkspaceSolutions": [
+    "TaskManagement.sln"
+  ],
+    "files.exclude": {
+    "**/node_modules": true,
+    "**/.angular": true
+  }
+}

@@ -1,0 +1,32 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: min(100%, 400px);
+  padding-top: 0.5rem;
+}
+
+.error-message {
+  margin: 0.25rem 0 0;
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+.action-button {
+  .button-content {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  mat-progress-spinner {
+    display: inline-block;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    --mat-progress-spinner-active-indicator-color: currentColor;
+  }
+}

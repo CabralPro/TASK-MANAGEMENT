@@ -2,6 +2,24 @@
 
 Full-stack personal task manager in a **single monorepo**: ASP.NET Core Clean Architecture API + Angular SPA, orchestrated by root npm scripts.
 
+## Screenshots
+
+### Sign in
+
+![Sign-in page](demo/images/login.png)
+
+### Tasks
+
+![Tasks page with seeded demo data](demo/images/tasks.png)
+
+### API coverage
+
+![Backend coverage report](demo/images/api-coverage.png)
+
+### Web coverage
+
+![Frontend coverage report](demo/images/web-coverage.png)
+
 ## Repository layout
 
 ```
@@ -33,15 +51,13 @@ Full-stack personal task manager in a **single monorepo**: ASP.NET Core Clean Ar
 │       ├── TaskManagement.Application.Tests
 │       ├── TaskManagement.Infrastructure.Tests
 │       └── TaskManagement.WebAPI.Tests
-├── docs/
-│   ├── AI-WORKFLOW.md           # prompting, validation, and corrections (AC 4.4)
+├── demo/
+│   ├── images/                  # UI + coverage screenshots
 │   └── User Story - Task Management Application.md
 ├── scripts/
 ├── coverlet.runsettings
 └── global.json
 ```
-
-See [docs/AI-WORKFLOW.md](docs/AI-WORKFLOW.md) for how generative AI was used during development.
 
 ## Prerequisites
 
@@ -142,4 +158,3 @@ npm run coverage:open
 | `npm run install:all` | Root + Angular dependencies |
 | `npm test` | Backend + frontend unit tests (in parallel) |
 | `npm run coverage` | Backend + frontend coverage (in parallel) |
-# TASK-MANAGEMENT

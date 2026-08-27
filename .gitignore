@@ -1,0 +1,35 @@
+## Dependencies
+/node_modules/
+/src/TaskManagement.WebUI/node_modules/
+/src/TaskManagement.Web/
+
+## OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+## Editors / IDEs
+.idea/
+*.swp
+*.*~
+.vs/
+
+## Logs / env
+*.log
+.env
+.env.*
+!.env.example
+
+## .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+TestResults/
+CoverageReport/
+src/TaskManagement.WebAPI/Database/
+
+## Angular
+/src/TaskManagement.WebUI/dist/
+/src/TaskManagement.WebUI/.angular/
+/src/TaskManagement.WebUI/coverage/

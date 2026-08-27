@@ -1,0 +1,5 @@
+# Disables Roslynator analyzers for this repo (also used by C# Dev Kit).
+# See: https://github.com/dotnet/roslynator/blob/main/docs/Configuration.md
+roslynator_analyzers.enabled_by_default = false
+roslynator_compiler_diagnostic_fixes.enabled_by_default = false
+roslynator_refactorings.enabled_by_default = false

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Exclude>[*.Tests]*</Exclude>
+          <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
+          <ExcludeByFile>**/Program.cs;**/Startup.cs;**/OpenApi/**;**/Setup/**;**/DTOs/**;**/Models/**;**/Migrations/**;**/Abstractions/**;**/Exceptions/**;**/Entities/Entity.cs;**/Entities/IAggregateRoot.cs;**/DependencyInjection.cs;**/Mappings/**;**/I*.cs</ExcludeByFile>
+          <Include>[TaskManagement.*]*</Include>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
