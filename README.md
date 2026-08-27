@@ -20,44 +20,15 @@ Full-stack personal task manager in a **single monorepo**: ASP.NET Core Clean Ar
 
 ![Frontend coverage report](demo/images/web-coverage.png)
 
-## Repository layout
+## Tech Stack
 
-```
-.
-├── package.json                 # npm orchestrator (start / test / coverage)
-├── TaskManagement.sln           # Domain / Application / Infrastructure / Web / Tests
-├── src/
-│   ├── TaskManagement.Domain
-│   │   ├── Abstractions/
-│   │   ├── Repositories/
-│   │   ├── Entities/
-│   │   ├── Enums/
-│   │   └── Exceptions/
-│   ├── TaskManagement.Application
-│   │   ├── DTOs/Requests/
-│   │   ├── DTOs/Responses/
-│   │   ├── UseCases/
-│   │   ├── Validators/
-│   │   ├── Mapping/
-│   │   └── Auth/                # ports (hasher, JWT)
-│   ├── TaskManagement.Infrastructure
-│   │   ├── Persistence/         # DbContext, mappings, migrations, seeder
-│   │   ├── Repositories/
-│   │   └── Identity/
-│   ├── TaskManagement.WebAPI
-│   ├── TaskManagement.WebUI           # Angular 22 SPA
-│   └── TaskManagement.Tests/
-│       ├── TaskManagement.Domain.Tests
-│       ├── TaskManagement.Application.Tests
-│       ├── TaskManagement.Infrastructure.Tests
-│       └── TaskManagement.WebAPI.Tests
-├── demo/
-│   ├── images/                  # UI + coverage screenshots
-│   └── User Story - Task Management Application.md
-├── scripts/
-├── coverlet.runsettings
-└── global.json
-```
+| Area | Technologies |
+|------|----------------|
+| Backend | ASP.NET Core (.NET 10), Clean Architecture, FluentValidation, AutoMapper, JWT auth, BCrypt, Serilog, Scalar OpenAPI |
+| Frontend | Angular 22, Angular Material, RxJS, TypeScript |
+| Data | Entity Framework Core, SQLite |
+| Testing | xUnit / Coverlet / ReportGenerator (API), Vitest (Web) |
+| Tooling | Node.js / npm (monorepo orchestrator) |
 
 ## Prerequisites
 
@@ -106,20 +77,7 @@ Task status values: `Pending`, `InProgress`, `Completed`.
 | Infrastructure | `TaskManagement.Infrastructure` | EF Core (SQLite), BCrypt, JWT, seeding |
 | Web API | `TaskManagement.WebAPI` | Controllers, middleware, Scalar OpenAPI |
 
-**Frontend** (`src/TaskManagement.WebUI/`) — standalone Angular:
-
-```
-src/TaskManagement.WebUI/src/app/
-  core/           # API client, auth/task services, guards, interceptor
-  features/auth/  # login, register
-  features/tasks/
-    tasks-page/          # task list + filter
-    task-form-dialog/    # create/edit dialog
-  shared/layout/  # app shell
-  shared/ui/      # confirm dialog
-```
-
-Users only access tasks scoped to their JWT user id.
+**Frontend** (`TaskManagement.WebUI`) — standalone Angular SPA with feature modules for auth and tasks, plus shared layout/UI. Users only access tasks scoped to their JWT user id.
 
 ## Frontend routes
 
